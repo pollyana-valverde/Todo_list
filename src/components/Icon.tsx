@@ -23,8 +23,6 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
     | "check"
     | "x"
     | "clipboard-text";
-  size?: number;
-  color?: string;
   weight?: "thin" | "light" | "regular" | "bold" | "fill" | "duotone";
 }
 
@@ -43,8 +41,6 @@ const iconMap = {
 
 export function Icon({
   name,
-  size = 24,
-  color = "black",
   weight = "regular",
   className,
   ...rest
@@ -53,8 +49,6 @@ export function Icon({
 
   return (
     <IconComponent
-      size={size}
-      color={color}
       weight={weight}
       className={className}
       {...rest}
