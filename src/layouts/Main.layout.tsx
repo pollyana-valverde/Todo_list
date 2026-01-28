@@ -15,7 +15,7 @@ export function MainLayout() {
         <Outlet />
       </MainContent>
 
-     <Footer />
+      <Footer />
     </React.Fragment>
   );
 }
