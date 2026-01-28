@@ -2,34 +2,34 @@ import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const containerVariants = cva("mx-auto", {
-    variants: {
-        size: {
-            md: "max-w-126 px-2",
-        },
+  variants: {
+    size: {
+      md: "max-w-126 px-2",
     },
-    defaultVariants: {
-        size: "md",
-    },
-})
+  },
+  defaultVariants: {
+    size: "md",
+  },
+});
 
-interface ContainerProps extends React.ComponentProps<"div">, VariantProps<typeof containerVariants> {
-    as?: keyof React.JSX.IntrinsicElements;
+interface ContainerProps
+  extends React.ComponentProps<"div">, VariantProps<typeof containerVariants> {
+  as?: keyof React.JSX.IntrinsicElements;
 }
 
-export function Container ({
-    as = "div",
-    size,
-    className,
+export function Container({
+  as = "div",
+  size,
+  className,
+  children,
+  ...rest
+}: ContainerProps) {
+  return React.createElement(
+    as,
+    {
+      className: containerVariants({ size, className }),
+      ...rest,
+    },
     children,
-    ...rest
-}: ContainerProps
-) {
-    return React.createElement(
-        as,
-        {
-            className: containerVariants({ size, className }),
-            ...rest,
-        },
-        children
-    );
+  );
 }

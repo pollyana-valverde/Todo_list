@@ -1,9 +1,9 @@
 import React from "react";
 import { useTasks, useTask } from "../hooks";
+import { type Task, TaskState } from "../models/task";
 
 import { Button } from "../components/Button";
 import { TaskItem } from "./TaskItem";
-import { type Task, TaskState } from "../models/task";
 
 export function TasksList() {
   const { tasks, isLoadingTasks } = useTasks();

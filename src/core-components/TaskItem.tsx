@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { ButtonIcon } from "../components/ButtonIcon";
+import { useTask } from "../hooks";
+
+import { cx } from "class-variance-authority";
+import { TaskState, type Task } from "../models/task";
+
+import { Skeleton } from "../components/Skeleton";
 import { Card } from "../components/Card";
 import { InputCheckbox } from "../components/InputCheckbox";
 import { Text } from "../components/Text";
 import { InputText } from "../components/InputText";
-import { TaskState, type Task } from "../models/task";
-import { cx } from "class-variance-authority";
-import { useTask } from "../hooks";
-import { Skeleton } from "../components/Skeleton";
+import { ButtonIcon } from "../components/ButtonIcon";
 
 interface TaskItemProps {
   task: Task;
