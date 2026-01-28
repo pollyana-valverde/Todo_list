@@ -6,7 +6,7 @@ import { Icon } from "./Icon";
 import { Text } from "./Text";
 
 const buttonVariants = cva(
-  "flex items-center cursor-pointer transition rounded-lg group gap-2",
+  "flex items-center justify-center cursor-pointer transition rounded-lg group gap-2",
   {
     variants: {
       variant: {
