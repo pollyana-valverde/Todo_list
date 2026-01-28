@@ -1,5 +1,5 @@
+import { AppRoutes } from "./pages";
+
 export function App() {
-  return (
-   <div className=""></div>
-  );
+  return <AppRoutes />;
 }
