@@ -1,21 +1,21 @@
 import React from "react";
-import { Container } from "../components/Container";
+
 import { Outlet } from "react-router";
+
+import { Header } from "../core-components/Header";
+import { MainContent } from "../core-components/MainContent";
+import { Footer } from "../core-components/Footer";
 
 export function MainLayout() {
   return (
     <React.Fragment>
-      <Container as="header" className="mt-3 md:mt-20">
-        ola mundo
-      </Container>
+      <Header />
 
-      <main className="mt-4 md:mt-8">
+      <MainContent>
         <Outlet />
-      </main>
+      </MainContent>
 
-      <Container as="footer" className="my-5 md:my-10">
-        rodape
-      </Container>
+     <Footer />
     </React.Fragment>
   );
 }
