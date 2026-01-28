@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# ToDo List - ReactJS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![ToDo List App](./.github/app.png)
 
-Currently, two official plugins are available:
+Este é um projeto de uma aplicação de lista de tarefas (To-Do List) desenvolvido como parte do curso da Rocketseat. A aplicação permite aos usuários adicionar, marcar como concluídas e excluir tarefas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Tecnologias
 
-## React Compiler
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+-   [React](https://reactjs.org)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [Vite](https://vitejs.dev/)
+-   [CSS Modules](https://github.com/css-modules/css-modules)
 
-## Expanding the ESLint configuration
+## 🚀 Como executar
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  Clone o repositório:
+  ```bash
+  git clone https://github.com/seu-usuario/Todo_list.git
+  ```
+2.  Navegue até o diretório do projeto:
+  ```bash
+  cd Todo_list
+  ```
+3.  Instale as dependências:
+  ```bash
+  npm install
+  ```
+4.  Inicie o servidor de desenvolvimento:
+  ```bash
+  npm run dev
+  ```
+5.  Abra seu navegador e acesse `http://localhost:5173` (ou a porta indicada no seu terminal).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📋 Funcionalidades
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+-   **Adicionar Tarefas:** Crie novas tarefas para a sua lista.
+-   **Marcar como Concluída:** Marque tarefas que já foram finalizadas.
+-   **Excluir Tarefas:** Remova tarefas da lista.
+-   **Contador de Tarefas:** Visualize o total de tarefas criadas e o número de tarefas concluídas.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Feito por Pollyana Valverde.
