@@ -26,8 +26,22 @@ export function useTask() {
     );
   }
 
+  function updateTaskStatus(id: string, concluded: boolean) {
+    setTask(
+      task.map((taskItem) =>
+        taskItem.id === id ? { ...taskItem, concluded } : taskItem,
+      ),
+    );
+  }
+
+  function deleteTask(id: string) {
+    setTask(task.filter((taskItem) => taskItem.id !== id));
+  }
+
   return {
     prepareTask,
     updateTask,
+    updateTaskStatus,
+    deleteTask,
   };
 }
