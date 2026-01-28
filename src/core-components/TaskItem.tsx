@@ -7,12 +7,14 @@ import { InputText } from "../components/InputText";
 import { TaskState, type Task } from "../models/task";
 import { cx } from "class-variance-authority";
 import { useTask } from "../hooks";
+import { Skeleton } from "../components/Skeleton";
 
 interface TaskItemProps {
   task: Task;
+  isLoading?: boolean;
 }
 
-export function TaskItem({ task }: TaskItemProps) {
+export function TaskItem({ task, isLoading }: TaskItemProps) {
   const { updateTask, updateTaskStatus, deleteTask } = useTask();
 
   const [isEditing, setIsEditing] = useState(
@@ -61,25 +63,29 @@ export function TaskItem({ task }: TaskItemProps) {
           <InputCheckbox
             checked={task?.concluded}
             onChange={handleChangeTaskStatus}
+            isLoading={isLoading}
           />
-          <Text
-            className={cx("flex-1", {
-              "line-through text-gray-300!": task?.concluded,
-            })}
-          >
-            {task?.title}
-          </Text>
+
+          {!isLoading ? (
+            <Text className={cx("flex-1", { "line-through": task?.concluded })}>
+              {task?.title}
+            </Text>
+          ) : (
+            <Skeleton className="flex-1 h-6" />
+          )}
 
           <div className="flex gap-1">
             <ButtonIcon
               icon="trash"
               variant="tertiary"
               onClick={handleDeleteTask}
+              isLoading={isLoading}
             />
             <ButtonIcon
               icon="pencil-simple"
               variant="tertiary"
               onClick={handleEditTask}
+              isLoading={isLoading}
             />
           </div>
         </div>

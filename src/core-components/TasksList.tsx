@@ -3,10 +3,10 @@ import { useTasks, useTask } from "../hooks";
 
 import { Button } from "../components/Button";
 import { TaskItem } from "./TaskItem";
-import { TaskState } from "../models/task";
+import { type Task, TaskState } from "../models/task";
 
 export function TasksList() {
-  const { tasks } = useTasks();
+  const { tasks, isLoadingTasks } = useTasks();
   const { prepareTask } = useTask();
 
   function handleNewTask() {
@@ -20,16 +20,25 @@ export function TasksList() {
           icon="plus"
           className="w-full"
           onClick={handleNewTask}
-          disabled={tasks.some((task) => task.state === TaskState.Creating)}
+          disabled={
+            tasks.some((task) => task.state === TaskState.Creating) ||
+            isLoadingTasks
+          }
         >
           Nova tarefa
         </Button>
       </section>
 
       <section className="space-y-2">
-        {tasks.map((task) => (
-          <TaskItem key={task.id} task={task} />
-        ))}
+        {!isLoadingTasks &&
+          tasks.map((task) => <TaskItem key={task.id} task={task} />)}
+        {isLoadingTasks && (
+          <>
+            <TaskItem task={{} as Task} isLoading />
+            <TaskItem task={{} as Task} isLoading />
+            <TaskItem task={{} as Task} isLoading />
+          </>
+        )}
       </section>
     </React.Fragment>
   );
